@@ -12,6 +12,18 @@
 
 
 <script>
+    const profileData = <?php echo $profile_json; ?>;
+
+    // console.log(profileData);
+    const jsArray = JSON.parse(JSON.stringify(profileData));
+    // console.log(jsArray);
+
+
+
+
+</script>
+
+<script>
     // สร้างแผนที่ที่กำหนดตำแหน่งเริ่มต้น
     var map = L.map('map').setView([13.7563, 100.5018], 10); // Bangkok, Thailand
 
@@ -37,16 +49,16 @@
 
     // รูปภาพสำหรับ marker ทั้ง 10
     var markerImages = [
-        'path/to/image1.jpg',
-        'path/to/image2.jpg',
-        'path/to/image3.jpg',
-        'path/to/image4.jpg',
-        'path/to/image5.jpg',
-        'path/to/image6.jpg',
-        'path/to/image7.jpg',
-        'path/to/image8.jpg',
-        'path/to/image9.jpg',
-        'path/to/image10.jpg'
+        // 'path/to/image1.jpg',
+        // 'path/to/image2.jpg',
+        // 'path/to/image3.jpg',
+        // 'path/to/image4.jpg',
+        // 'path/to/image5.jpg',
+        // 'path/to/image6.jpg',
+        // 'path/to/image7.jpg',
+        // 'path/to/image8.jpg',
+        // 'path/to/image9.jpg',
+        // 'path/to/image10.jpg'
     ];
 
     // สีสำหรับ marker ทั้ง 10
@@ -65,10 +77,13 @@
 
     // สร้าง marker และเก็บไว้ใน array
     var markers = [];
-  
+
     var controls = document.getElementById('controls');
-    for (var i = 0; i < markerPositions.length; i++) {
+    for (var i = 0; i < jsArray.length; i++) {
         (function (index) {
+            var item = jsArray[index];
+            console.log(item);
+            
             // สร้าง icon สำหรับ marker ที่มีสีไม่ซ้ำกัน
             var customIcon = L.divIcon({
                 className: 'custom-div-icon',
@@ -78,9 +93,9 @@
             });
 
             var marker = L.marker(markerPositions[index], { icon: customIcon }).bindPopup(`
-                    <h3>Marker ${index + 1}</h3>
+                    <h3>${item.fname} </h3>
                     <h5></h5>
-                    <p>Marker at ${markerPositions[index]}</p>
+                    <p>Marker at ${item.coordinates}</p>
                     <img src="${markerImages[index]}" alt="Image for Marker ${index + 1}" style="width:100%;height:auto;">
                 `);
             markers.push(marker);
@@ -105,6 +120,7 @@
                     map.removeLayer(marker);
                 }
             });
+
         })(i);
     }
 </script>

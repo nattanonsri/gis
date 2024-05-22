@@ -9,7 +9,8 @@
             <th>ลำดับ</th>
             <th>ชื่อ</th>
             <th>username</th>
-            <th>password</th>
+            <th>birthdate</th>
+            <th>image</th>
             <th></th>
         </tr>
     </thead>
@@ -22,7 +23,8 @@
                 <td><?php echo $i ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['username']; ?></td>
-                <td><?php echo $row['password']; ?></td>
+                <td><?php echo $row['birthdate']; ?></td>
+                <td><img src="<?= base_url(esc($row['image'])); ?>" style="width: 200px; height: 200px;"></td>
                 <td>
                     <!-- <a class="btn btn-sm btn-info mx-1" href="">View</a> -->
                     

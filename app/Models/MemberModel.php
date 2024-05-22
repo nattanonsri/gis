@@ -5,9 +5,15 @@ use CodeIgniter\Model;
 
 class MemberModel extends Model
 {
-    protected $table = 'db_member';
+    protected $table = 'db_members';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['name', 'username', 'password'];
+    protected $returnType = 'array';
+    protected $allowedFields = ['name', 'username', 'password', 'image','birthdate'];
+
+    // Automatically handle created_at and updated_at
+    protected $useTimestamps = true;
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
 
     public function getMember()
     {
@@ -18,6 +24,6 @@ class MemberModel extends Model
     // {
     //     return $this->insert($data);
     // }
-    
+
 
 }

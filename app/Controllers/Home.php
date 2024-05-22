@@ -1,16 +1,21 @@
 <?php 
 namespace App\Controllers;
 
-use App\Models\MemberModel;
+use App\Models\Profile_HomeModel;
 use CodeIgniter\Controller;
 
 class Home extends Controller{
     
     public function index(){
         
-        $model = new MemberModel();
+        $model = new Profile_HomeModel();
 
-        $data['member'] = $model->getMember();
+        // ดึงข้อมูลโปรไฟล์ทั้งหมด
+        $data['profile'] = $model->getProfile_Home();
+        
+        // แปลงข้อมูลเป็น JSON
+        $data['profile_json'] = json_encode($data['profile']);
+
  
         echo view('common/header');
         echo view('home/index',$data);
