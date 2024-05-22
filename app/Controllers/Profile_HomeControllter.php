@@ -45,9 +45,9 @@ class Profile_HomeControllter extends Controller
     
             if ($file->isValid() && !$file->hasMoved()) {
                 $imageName = $file->getRandomName(); // สร้างชื่อไฟล์แบบสุ่ม
-                $file->move('uploads/profiles', $imageName);
+                $file->move('uploads/profiles/', $imageName);
     
-                $filePath = 'uploads/profiles' . $imageName;
+                $filePath = 'uploads/profiles/' . $imageName;
     
                 $model->save([
                     'prefix' => $this->request->getPost('prefix'),

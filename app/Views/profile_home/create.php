@@ -93,7 +93,7 @@
             <label for="medicines">ยาที่ใช้</label>
             <input class="form-control" type="text" name="medicines" id="medicines">
         </div>
-        <a class="btn btn-light" href="/profile_home">Cancel</a>
+        <a class="btn btn-light" href="/profile">Cancel</a>
         <button class="btn btn-primary" type="submit" name="submit">เพิ่มข้อมูล</button>
     </form>
 </div>
@@ -227,7 +227,7 @@
                 </div>
             </div>
             <div class="col-12 mb-3 text-right">
-                <a class="btn btn-light" href="/profile_home">Cancel</a>
+                <a class="btn btn-light" href="/profile">Cancel</a>
                 <button class="btn btn-primary" type="submit" name="submit">เพิ่มข้อมูล</button>
             </div>
         </div>
