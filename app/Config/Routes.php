@@ -20,3 +20,7 @@ $routes->match(['get'], 'member/delete/(:num)', 'Member::delete/$1');
 $routes->get('profile', 'Profile_HomeControllter::index');
 
 $routes->match(['get', 'post'], 'profile/create' , 'Profile_HomeControllter::create');
+
+$routes->match(['get', 'post'], 'profile/edit/(:num)', 'Profile_HomeControllter::edit/$1');
+
+$routes->match(['get'], 'profile/delete/(:num)','Profile_HomeControllter::delete/$1');

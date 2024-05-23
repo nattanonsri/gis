@@ -102,8 +102,8 @@ class Member extends Controller
 
             $file = $this->request->getFile('image');
 
-              // เตรียมข้อมูลที่ต้องการอัปเดต
-              $updateData = [
+            // เตรียมข้อมูลที่ต้องการอัปเดต
+            $updateData = [
                 'id' => $id,
                 'name' => $this->request->getPost('name'),
                 'username' => $this->request->getPost('username'),
@@ -123,7 +123,7 @@ class Member extends Controller
                 $filePath = 'uploads/' . $imageName;
                 $updateData['image'] = $filePath;
 
-              
+
 
                 // ตรวจสอบว่ามีการกรอกรหัสผ่านใหม่หรือไม่
                 if ($this->request->getPost('password')) {
