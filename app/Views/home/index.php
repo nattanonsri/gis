@@ -13,17 +13,8 @@
 
 <script>
     const profileData = <?php echo $profile_json; ?>;
-
-    // console.log(profileData);
     const jsArray = JSON.parse(JSON.stringify(profileData));
-    // console.log(jsArray);
 
-
-
-
-</script>
-
-<script>
     // สร้างแผนที่ที่กำหนดตำแหน่งเริ่มต้น
     var map = L.map('map').setView([13.7563, 100.5018], 10); // Bangkok, Thailand
 
@@ -32,20 +23,9 @@
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    // ตำแหน่ง marker ทั้ง 10
-    var markerPositions = [
-        [13.7563, 100.5018],
-        [13.7463, 100.5018],
-        [13.7363, 100.5018],
-        [13.7263, 100.5018],
-        [13.7163, 100.5018],
-        [13.7063, 100.5018],
-        [13.6963, 100.5018],
-        [13.6863, 100.5018],
-        [13.6763, 100.5018],
-        [13.6663, 100.5018]
-    ];
-
+    // ตำแหน่ง marker ที่ได้จาก jsArray
+    const markerPositions = jsArray.map(item => item.coordinates);
+    // console.log(markerPositions);
 
     // รูปภาพสำหรับ marker ทั้ง 10
     var markerImages = [
@@ -82,34 +62,44 @@
     for (var i = 0; i < jsArray.length; i++) {
         (function (index) {
             var item = jsArray[index];
+
             console.log(item);
-            
+
+            // ตรวจสอบว่าค่าพิกัดไม่เป็น null หรือ undefined
+            if (!item.coordinates || item.coordinates.length !== 2) {
+                console.error(`Invalid coordinates for item at index ${index}`);
+                return; // ข้ามมาร์กเกอร์นี้ถ้าข้อมูลไม่ถูกต้อง
+            }
+
             // สร้าง icon สำหรับ marker ที่มีสีไม่ซ้ำกัน
             var customIcon = L.divIcon({
                 className: 'custom-div-icon',
-                html: `<div style="background-color:${markerColors[index]}; width:20px; height:20px; border-radius:30%;"></div>`, //<img src="pin.png" alt="รูปมาร์เกอร์" style="width:20px;height:20px;">
+                html: `<div style="background-color:${markerColors[index]}; width:20px; height:20px; border-radius:30%;"></div>`,
                 iconSize: [20, 20],
                 iconAnchor: [10, 10]
             });
 
-            var marker = L.marker(markerPositions[index], { icon: customIcon }).bindPopup(`
-                    <h3>${item.fname} </h3>
-                    <h5></h5>
-                    <p>Marker at ${item.coordinates}</p>
-                    <img src="${markerImages[index]}" alt="Image for Marker ${index + 1}" style="width:100%;height:auto;">
-                `);
+            var marker = L.marker(item.coordinates, { icon: customIcon }).bindPopup(`
+                        <img src="${item.file_image}" alt="Image for Marker ${index + 1}" style="width:100%;height:auto;">            
+                        <p style="font-size: 14pt">${item.fname} ${item.lname} <br/>
+                        - ${item.disease} <br/>
+                        - ${item.succor} <br/>
+                        - ${item.relative}
+                        <p>Marker at ${item.coordinates}</p>
+                        
+                    `);
             markers.push(marker);
             marker.addTo(map);
 
             // สร้างปุ่มสวิตช์สำหรับ marker แต่ละตัว
             var switchContainer = document.createElement('div');
             switchContainer.innerHTML = `
-                    <label class="switch">
-                        <input type="checkbox" id="toggleMarker${index}" checked>
-                        <span class="slider"></span>
-                    </label>
-                    <label for="toggleMarker${index}">Marker ${index + 1}</label>
-                `;
+                        <label class="switch">
+                            <input type="checkbox" id="toggleMarker${index}" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <label for="toggleMarker${index}">Marker ${index + 1}</label>
+                    `;
             controls.appendChild(switchContainer);
 
             // เพิ่ม event listener ให้ปุ่มสวิตช์

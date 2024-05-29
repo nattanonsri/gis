@@ -1,38 +1,37 @@
 <?php
+
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class Profile_HomeModel extends Model
 {
-
-    protected $table = 'db_profiles';
+    protected $table = 'tb_profiles';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
     protected $allowedFields = [
-        'prefix', 
-        'fname', 
+        'prefix',
+        'fname',
         'lname',
         'card_id',
         'birthdate',
         'disease',
         'disease_details',
-        'assist',
+        'succor',
         'relative',
         'caretaker',
         'medicines',
         'coordinates',
-        'image',
+        'file_image'
     ];
 
-    protected $useTimestamp = true;
+    protected $useTimestamps = true;
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
 
-    public function getProfile_Home()
+    public function getProfileHome()
     {
         return $this->findAll();
     }
-
 
 }

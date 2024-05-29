@@ -19,11 +19,4 @@ class MemberModel extends Model
     {
         return $this->findAll();
     }
-
-    // public function addMember($data)
-    // {
-    //     return $this->insert($data);
-    // }
-
-
 }
