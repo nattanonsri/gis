@@ -194,4 +194,22 @@ class Profile_HomeController extends Controller
             return redirect()->to('/profile')->with('status', 'No Profile id provided');
         }
     }
+
+
+    public function Login()
+    {
+        echo view('common/header');
+        echo view('profile_home/login');
+        echo view('common/footer');
+    }
+
+    public function register()
+    {
+        echo view('common/header');
+        echo view('profile_home/register');
+        echo view('common/footer');
+    }
+    public function logout(){
+
+    }
 }

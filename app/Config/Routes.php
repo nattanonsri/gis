@@ -17,10 +17,11 @@ $routes->match(['get', 'post'], 'member/edit/(:num)', 'Member::edit/$1');
 $routes->match(['get'], 'member/delete/(:num)', 'Member::delete/$1');
 
 
-$routes->match(['get', 'post'], 'login', 'LoginController::index');
-$routes->match(['get', 'post'], 'logout', 'LoginController::logout');
+$routes->match(['get', 'post'], 'login', 'Profile_HomeController::login');
+$routes->match(['get', 'post'], 'register', 'Profile_HomeController::register');
+$routes->match(['get', 'post'], 'logout', 'Profile_HomeController::logout');
 
-// $routes->group('', ['Filter' => 'auth'], function ($routes) {
+$routes->group('', ['Filter' => 'auth'], function ($routes) {
 
     $routes->get('profile', 'Profile_HomeController::index');
 
@@ -30,11 +31,7 @@ $routes->match(['get', 'post'], 'logout', 'LoginController::logout');
 
     $routes->get('profile/delete/(:num)', 'Profile_HomeController::delete/$1');
 
-    // $routes->get('profile/create/camera_image', 'CameraController::index');
-
-    $routes->match(['get', 'post'], 'profile/create/camera_image/save', 'CameraController::save');
-
-// });
+});
 
 
 

@@ -5,7 +5,7 @@
     <form action="/profile/create" method="post" enctype="multipart/form-data">
         <?= csrf_field() ?>
 
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="prefix">คำนำหน้า&nbsp;<span class="text-danger">*</span></label> <br>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="prefix" id="prefix1" value="นาย" checked>
@@ -20,23 +20,23 @@
                 <label class="form-check-label" for="prefix3">นางสาว</label>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="fname">ชื่อจริง&nbsp;<span class="text-danger">*</span></label>
             <input class="form-control" type="text" name="fname" id="fname" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="lname">นามสกุล&nbsp;<span class="text-danger">*</span></label>
             <input class="form-control" type="text" name="lname" id="lname" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="card_id">เลขบัตรประจำตัวประชาชน&nbsp;<span class="text-danger">*</span></label>
             <input class="form-control" type="text" name="card_id" id="card_id" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="birthdate">วัน/เดือน/ปีเกิด&nbsp;<span class="text-danger">*</span></label>
             <input class="form-control" type="date" name="birthdate" id="birthdate" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="coordinatesWeb">พิกัด&nbsp;<span class="text-danger">*</span></label>
             <div class="input-group">
                 <input class="form-control" type="text" name="coordinates" id="coordinatesWeb"
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="disease" id="disease1"
                     value="ผู้สูงอายุไม่มีโรคประจำตัว" onclick="toggleCheckbox1(false)" checked />
@@ -63,11 +63,11 @@
                 <label class="form-check-label" for="disease2">ผู้สูงอายุมีโรคประจำตัว</label>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="disease_details">โรคประจำตัว</label>
             <input class="form-control" type="text" name="disease_details" id="disease_details" disabled>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="succor" id="succor1"
                     value="ผู้สูงอายุช่วยเหลือตัวเองไม่ได้" checked />
@@ -79,7 +79,7 @@
                 <label class="form-check-label" for="succor2">ผู้สูงอายุช่วยเหลือตัวเองได้</label>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="relative" id="relative1" value="ผู้สูงอายุไม่มีญาติ"
                     onclick="toggleCheckbox2(false)" checked />
@@ -91,16 +91,16 @@
                 <label class="form-check-label" for="relative2">ผู้สูงอายุมีญาติ</label>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="caretaker">ผู้ดูแล</label>
             <input class="form-control" type="text" name="caretaker" id="caretaker" disabled>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="medicines">ยาที่ใช้</label>
             <input class="form-control" type="text" name="medicines" id="medicines">
         </div>
 
-        <div class="form-group">
+        <div class="form-group mt-3 mb-3">
             <label for="file_image">รูปภาพบ้าน&nbsp;<span class="text-danger">*</span></label>
             <input class="form-control" type="file" name="file_image" id="file_image" required>
         </div>
@@ -142,31 +142,31 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-6 mt-3">
                 <div class="form-group">
                     <label for="fname1">ชื่อจริง&nbsp;<span class="text-danger">*</span></label>
                     <input class="form-control" type="text" name="fname" id="fname1">
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-3">
                 <div class="form-group">
                     <label for="lname1">นามสกุล&nbsp;<span class="text-danger">*</span></label>
                     <input class="form-control" type="text" name="lname" id="lname1">
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="card_id1">เลขบัตรประจำตัวประชาชน&nbsp;<span class="text-danger">*</span></label>
                     <input class="form-control" type="text" name="card_id" id="card_id1">
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="birthdate1">วัน/เดือน/ปีเกิด&nbsp;<span class="text-danger">*</span></label>
                     <input class="form-control" type="date" name="birthdate" id="birthdate1">
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="coordinatesMobile">พิกัด&nbsp;<span class="text-danger">*</span></label>
                     <div class="input-group">
@@ -184,7 +184,7 @@
                 </div>
 
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="disease" id="disease3"
@@ -198,13 +198,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="disease_details1">โรคประจำตัว</label>
                     <input class="form-control" type="text" name="disease_details" id="disease_details1" disabled>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="succor" id="succor3"
@@ -218,7 +218,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="relative" id="relative3"
@@ -232,23 +232,22 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="caretaker1">ผู้ดูแล</label>
                     <input class="form-control" type="text" name="caretaker" id="caretaker1" disabled>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="medicines">ยาที่ใช้</label>
                     <input class="form-control" type="text" name="medicines" id="medicines">
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-3 mb-3">
                 <div class="form-group">
                     <label for="file_image1">รูปภาพบ้าน&nbsp;<span class="text-danger">*</span></label>
                     <input class="form-control" type="file" name="file_image" id="file_image1">
-                    <a class="btn btn-outline-secondary mt-2" href="/image">ถ่ายภาพ</a>
                 </div>
             </div>
             <div class="col-12 mb-3 text-right">
