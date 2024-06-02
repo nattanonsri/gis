@@ -11,13 +11,15 @@
   <!-- font -->
   <link href="<?= base_url() ?>assets/font/css/Kanit.css" rel="stylesheet">
   <!-- sweetaert2 -->
-  <link href="<?= base_url() ?>assets/sweetaert2/css/sweetalert2.min.css">
+  <link href="<?= base_url() ?>assets/sweetaert2/css/sweetalert2.min.css" rel="stylesheet">
+
+  <link href="<?= base_url() ?>assets/leaflet/css/leaflet.css" rel="stylesheet">
 
 
   <!-- font  -->
   <script src="<?= base_url() ?>assets/bootstrap5/js/bootstrap.bundle.min.js"></script>
   <!-- leaflet -->
-  <script src="<?= base_url() ?>assets/leaflet/leaflet.js"></script>
+  <script src="<?= base_url() ?>assets/leaflet/js/leaflet.js"></script>
   <!-- webcam -->
   <script src="<?= base_url() ?>assets/webcam/webcam.min.js"></script>
   <!-- ajax-jquery -->
